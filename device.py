@@ -41,7 +41,10 @@ def main():
 
     # to be implemented by students
     def clear_leds():
-        raise NotImplementedError("clear_leds should be implemented by students.")
+        while True:
+            for event in sense.stick.get_events():
+                if event.action == "pressed":
+                    backend.clear_leds(backend.get_device_id())
 
 if __name__ == '__main__':
     main()
